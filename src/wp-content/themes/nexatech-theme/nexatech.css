@@ -1,0 +1,1547 @@
+:root {
+	--bg-dark: #0b0d10;
+    --bg-light: #12151b;
+    --text-main: #ffffff;
+    --text-muted: #9aa3b2;
+    --accent: #4f8cff;
+}
+
+* {
+	margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+	font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.5;
+	background: #000;    
+}
+
+a {
+	color: inherit;
+    text-decoration: none;
+}
+
+/* contenedor gris principal */
+.site-wrapper, .site-wrapper-services {
+    position: relative;
+    /*background: var(--bg-dark);*/
+	background: radial-gradient(1200px 600px at 20% 0%, #111827 0%, #050608 60%);
+    max-width: 1400px;
+    margin: 0 auto;
+	/* margin: 64px auto 0; */
+	margin: clamp(32px, 6vh, 72px) auto 0;    
+	border-radius: 28px; /* aplica 28px a las 4 esquinas */
+    overflow: hidden; 	
+	/*padding-bottom: clamp(64px, 10vh, 140px);*/
+	/* el valor debe adaptarse al tamaño de la pantalla */
+	margin-bottom: clamp(32px, 6vh, 72px); /* separa del footer */
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* HEADER */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+.container {
+	width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;	
+}
+
+header {
+    padding: 32px 0;
+    position: sticky;
+	top: 0px;
+    z-index: 100;
+    background: rgba(11, 13, 16, 0.7);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+   
+.nav {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+	font-weight: 800;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+}
+
+/* Pseudo-elemento que se dibuja después del contenido del elemento con clase .logo */
+.logo::after {
+    content: "";           /* Crea el pseudo-elemento aunque no tenga texto */
+    display: inline-block; /* Permite asignarle ancho y alto */
+    width: 6px;            /* Ancho del punto */
+    height: 6px;           /* Alto del punto */
+    background: var(--accent); /* Color del punto (usa la variable --accent) */
+    border-radius: 50%;    /* Convierte el cuadrado en un círculo */
+    margin-left: 6px;      /* Espacio entre el logo y el punto */
+}
+
+/* links no activos */
+.nav-links a {
+	margin-left: 32px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.nav-links a:hover {
+	color: var(--text-main);
+}
+
+/* links activos */
+.nav-links a.active {
+    color: var(--text-main);
+    position: relative;
+    font-weight: 600;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* FOOTER */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+.site-footer {
+    background-color: #080a0f;
+    padding: 5px 0 20px;    
+	border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-claim {
+    font-size: 13px;
+    color: var(--text-muted);
+    opacity: 0.7;
+    margin-top: 4px;
+}
+
+/* Nav NO se mueve */
+.footer-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-nav a {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.footer-nav a:hover {
+    color: var(--text-main);
+}
+
+.footer-bottom {
+    /*margin-top: 14px;*/
+    padding-top: 20px;	   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+	/* Desktop grande se corre un poco a la izq. para que quede alineado visualmente con footer-brand */
+	transform: translateX(-50px);
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+/*Laptops / resoluciones medias */
+@media (max-width: 1600px) {
+    .footer-brand {
+        transform: translateX(25px);
+    }
+
+    .footer-bottom {
+        transform: translateX(-30px);
+    }
+}
+
+/* Mobile / tablets → SIN translate */
+@media (max-width: 900px) {
+    .footer-brand,
+    .footer-bottom {
+        transform: none;
+    }
+}
+
+.footer-credit {
+	padding-top: 6px;	
+    font-family: inherit; 
+    font-size: 15px;      
+    font-weight: normal;
+    color: var(--text-muted);
+    line-height: 1.4;
+    opacity: 0.75;
+    margin: 0;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* PAGINA PRINCIPAL */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+/* ---------- Hero ---------- */
+
+.hero {             
+	display: flex;
+    align-items: center;				
+	margin-top: 40px;
+	padding-top: 30px;
+    padding-bottom: 10px;
+}
+
+.hero-grid {
+	display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.hero h1 {
+	font-size: 64px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+}
+
+.hero h1 span {
+	color: var(--accent);
+}
+
+.hero p {
+	font-size: 18px;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin-bottom: 40px;
+}
+
+.hero-actions {
+	display: flex;
+    gap: 20px;
+}
+
+.btn {
+	padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+	background-color: var(--accent);	
+    color: #000;
+	transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+	background-color: #f7d36b;
+    box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent),
+        0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Visual Block ---------- */
+
+.hero-visual {
+	background: linear-gradient(145deg, #141824, #0e111a);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.card {
+	background-color: var(--bg-light);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+	font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.metric {
+	font-size: 32px;
+    font-weight: 800;
+}
+
+.metric span {
+	font-size: 14px;
+    color: var(--text-muted);
+    margin-left: 6px;
+}
+
+.demo-credit {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+    opacity: 0.65;
+    text-align: right;
+}
+
+.demo-credit strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 900px) {
+	.hero-grid {
+    	grid-template-columns: 1fr;
+	}
+	.hero h1 {
+		font-size: 44px;
+    }
+}
+			
+/* ---------- Services ---------- */
+
+.services {
+	padding-top: 10px;
+    padding-bottom: 35px; /* Espacio entre servicios y procesos de trabajo */   
+}
+
+.services-header {
+    max-width: 600px;
+    margin-bottom: 40px; /* espacio entre servicios y los recuadros */
+}
+
+.services-header h2 {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+	padding-bottom:5px;
+}
+
+.services-header p {
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.service-card {
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    padding: 32px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.service-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .services {
+        padding: 80px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .services-header h2 {
+        font-size: 32px;
+    }
+}
+
+/* ---------- Process ---------- */
+
+.process {
+    /* padding: 100px 0; */
+    /*background-color: var(--bg-dark);*/
+}
+
+.process-header {
+    max-width: 600px;
+    margin-bottom: 40px; /* Espacio entre procesos de trabajo y recuadros */
+}
+
+.process-header h2 {
+    font-size: 40px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+}
+
+.process-header p {
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.process-step {
+    background-color: var(--bg-light);
+    border-radius: 12px;
+    padding: 32px;
+    position: relative;
+}
+
+.step-number {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--accent);
+    opacity: 0.15;
+    margin-bottom: 20px;
+}
+
+.process-step h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.process-step p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .process {
+        padding: 80px 0;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .process-header h2 {
+        font-size: 32px;
+    }
+}
+		
+/* ---------- Cases ---------- */
+
+.cases {
+	/* 20 para arriba, 20 para abajo */
+    padding: 20px 0 20px;
+}
+
+.cases-header h2 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+
+.cases-filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.cases-filters button {
+    background: none;
+    border: 1px solid #2a2f3a;
+    color: var(--text-muted);
+    padding: 6px 14px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.cases-filters button.active,
+.cases-filters button:hover {
+    border-color: var(--accent);
+    color: var(--text-main);
+}
+
+.cases-grid {
+    position: relative;
+}
+
+.case-item {
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    padding: 24px;    
+	margin: 0 20px 20px 0;
+}
+
+.case-item h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.case-item p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .case-item {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* PAGINA SERVICIOS */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+/* ---------- HERO ---------- */
+
+.services-hero {
+    padding: 120px 0 80px;	
+}
+
+.services-hero h1 {
+    font-size: 56px;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+}
+
+.services-hero p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 520px;
+}
+
+/* ---------- HERO GRID ---------- */
+
+.services-hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 64px;
+}
+
+.services-hero-text {
+    max-width: 560px;
+}
+
+/* métricas hero */
+.services-hero-metrics {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.services-hero-metrics .metric-card {
+    min-width: 190px;
+}
+
+@media (max-width: 900px) {
+    .services-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .services-hero-metrics {
+        justify-content: flex-start;
+    }
+}
+
+/* ---------- TIMELINE ---------- */
+
+.services-timeline {
+    position: relative;	
+    /*padding: 60px 0;*/
+	/* Se usa para recortar o esconder el contenido que se sale de los límites de su contenedor */
+	/* overflow: hidden; */
+	/* Permitir que la timeline se desborde para que las solapas con recuadro no esten limitadas por el contenedor */
+    /* overflow: visible; */	
+	/* Evita scroll horizontal causado por animaciones laterales */
+    /* Corta cualquier contenido que se desborde horizontalmente sin crear scroll. */
+    /* A diferencia de overflow: hidden, no permite desplazamiento ni genera un nuevo contexto de scroll. */
+	overflow-x: clip;	
+}
+
+/* Línea vertical sutil */
+.services-timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(255,255,255,0.08),
+        transparent
+    );
+}
+
+/* ---------- BLOQUE ---------- */
+
+.service-block {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;    
+    align-items: center;
+	/* sube las solapas mas arriba */
+	transform: translateY(-60px);
+}
+
+/* 
+Estado inicial de los bloques que entran desde la izquierda.
+Arrancan 190px fuera de su posición final para que el movimiento
+horizontal se perciba fuerte al hacer scroll.
+*/
+.service-block[data-aos="fade-right"] {
+	transform: translate3d(-190px, 0, 0); /* Desplaza el bloque hacia la izquierda */
+	opacity: 0;                          /* Arranca invisible */
+}
+
+/* 
+Estado inicial de los bloques que entran desde la derecha.
+Mismo desplazamiento pero en sentido contrario, para mantener simetría visual.
+*/
+.service-block[data-aos="fade-left"] {
+	transform: translate3d(190px, 0, 0);  /* Desplaza el bloque hacia la derecha */
+	opacity: 0;                           /* Arranca invisible */
+}
+
+/* 
+Estado final cuando AOS agrega la clase .aos-animate.
+El bloque vuelve a su posición natural y se hace visible.
+Este cambio es el que genera la animación.
+*/
+.service-block.aos-animate {
+	transform: translate3d(0, 0, 0); /* Posición final, sin desplazamiento */
+	opacity: 1;                      /* Totalmente visible */
+}
+
+/* 
+Invierte la dirección del flujo del contenedor completo.
+Hace que los elementos hijos se ordenen visualmente de derecha a izquierda.
+En este caso, el índice del servicio pasa al lado derecho
+y el bloque de contenido queda a la izquierda.
+el indice del servicio es el numero grande que usás para identificar cada bloque.
+<span class="service-index">02</span>
+*/
+.service-block.reverse {
+    direction: rtl;
+}
+
+/* 
+Restaura la dirección normal del texto dentro del contenido.
+Evita que los textos, listas y párrafos se lean de derecha a izquierda.
+Solo se invierte el layout, no la lectura del contenido.
+*/
+.service-block.reverse .service-content {
+    direction: ltr;
+}
+
+/* Número gigante */
+.service-index {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 220px;
+    font-weight: 900;
+    color: var(--accent);
+    opacity: 0.08;
+    pointer-events: none;		    
+	/* timing más lento y elegante */
+    transition: opacity 1s ease-out;
+    transition-delay: 0.20s;		
+}
+
+/* 
+Cuando el panel izquierdo (.service-content) TERMINA su animación AOS
+(AOS agrega la clase .aos-animate), entonces el número grande del panel derecho
+sube su opacidad.
+- Se activa al entrar en viewport
+- Funciona aunque no haya hover (scroll)
+- El número NO se mueve
+*/
+.service-content.aos-animate ~ .service-facts .service-index {
+    opacity: 0.55;
+}
+
+/* 
+Refuerzo por interacción directa:
+cuando el usuario pasa el mouse por el bloque completo, el número también sube su opacidad.
+- Mejora feedback desktop
+- No depende del scroll
+- No rompe mobile (hover se ignora)
+*/
+.service-block:hover .service-index {
+    opacity: 0.55;
+}
+
+/* Contenido */
+
+.service-content {
+    background: linear-gradient(145deg, #141824, #0e111a);
+    padding: 48px;
+    border-radius: 16px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    transition: transform 0.3s ease;
+}
+
+.service-content:hover {
+    transform: translateY(-6px);
+}
+
+.service-content h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.service-content p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+.service-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-content li {
+    font-size: 14px;
+    color: var(--text-muted);
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.service-content li::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    top: 7px;
+}
+
+.service-facts {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px; 
+}
+
+.fact-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    overflow: hidden; /* evita que entren desde fuera visualmente */
+}
+
+/* evita jumps por transform de AOS */
+.fact-card,
+.fact-arrow,
+.fact-result {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+}
+
+/* asegura que el escalonado no se rompa al animar */
+.fact-card {
+    position: relative;
+}
+
+/* card principal */
+.fact-card {
+    background: linear-gradient(145deg, #141824, #0e111a);
+    padding: 24px 28px;
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    border-left: 3px solid var(--accent);
+    width: 320px;
+}
+
+/* escalonado */
+.fact-row:nth-child(1) .fact-card { margin-left: 0; }
+.fact-row:nth-child(2) .fact-card { margin-left: 40px; }
+.fact-row:nth-child(3) .fact-card { margin-left: 80px; }
+
+/* flecha */
+.fact-arrow img {
+    width: 72px;
+    height: auto;
+    display: block;
+}
+
+/* ---------- CTA ---------- */
+
+.services-cta {	
+	padding: 0px 0 40px 0; /* top right bottom left */	
+    /* padding: 60px 0 0 40px; */
+    text-align: center;
+	margin-bottom: 25px;		
+	/* relative: El elemento sigue en su lugar normal pero puedo moverlo un poco visualmente */
+	/* Es como empujarlo con la mano, sin reacomodar los muebles. */
+	/* top NO EXISTE si el elemento no está posicionado. */
+	position: relative;
+    top: -40px;
+}
+
+.services-cta h2 {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.services-cta p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 32px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+    .services-timeline::before {
+        display: none;
+    }
+
+    .service-block,
+    .service-block.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 40px;
+    }
+
+    .service-index {
+        left: 20px;
+        transform: none;
+        font-size: 80px;
+    }
+}
+
+/* contenedor gris para servicios */
+.site-wrapper-services {    
+    padding-bottom: 1740px; /* cubre visualmente servicios */	
+}
+
+.services-timeline {
+    position: relative;
+    z-index: 2;
+    margin-top: -1740px; 	
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* PAGINA PROCESO */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+.process-workflow {
+    padding-top: 120px;
+	padding-bottom: 80px;
+}
+
+/* Step */
+.process-workflow-step {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+	position: relative; 
+}
+
+/* Estado inicial: antes de animar */
+.process-workflow-step[data-aos="fade-right"] {
+    transform: translate3d(-190px, 0, 0);
+}
+
+.process-workflow-step[data-aos="fade-left"] {
+    transform: translate3d(190px, 0, 0);
+}
+
+/* Estado final: cuando AOS activa la animación */
+.process-workflow-step[data-aos].aos-animate {
+    transform: translate3d(0, 0, 0);
+}
+
+.process-workflow-content {
+	position: relative; /* clave para que el pseudo-elemento funcione */
+    background: linear-gradient(145deg, #141824, #0e111a); 
+    padding: 48px;                                         
+    border-radius: 16px;                                   /* bordes redondeados */
+    box-shadow: 0 30px 80px rgba(0,0,0,0.45);             /* sombra */    
+	/* diagonal al final derecho */
+    clip-path: polygon(
+        0 0,        /* esquina superior izquierda */
+        100% 0,     /* esquina superior derecha */
+        90% 100%,   /* esquina inferior derecha, 10% hacia adentro */
+        0 100%      /* esquina inferior izquierda */
+    );		
+	z-index: 2;  /* que esté por encima de la sombra */	
+}
+
+.process-workflow-content p {
+    color: #9ca3af;
+    line-height: 1.6;
+}
+
+.process-workflow-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 64px;
+    margin-bottom: 120px;
+}
+
+.process-workflow-header-text {
+    max-width: 740px;
+}
+
+.process-workflow-header h2 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* 
+Wrapper del bloque de proceso.
+Sirve como contexto para posicionar la sombra paralela
+sin que el clip-path recorte el blur.
+*/
+.process-workflow-card {
+    position: relative; /* necesario para posicionar ::before */
+    flex-grow: 1;       /* ocupa todo el ancho disponible del step */
+}
+
+/* 
+Pseudo-elemento que genera la sombra paralela.
+NO es box-shadow: es una "tarjeta fantasma" desplazada,
+con blur y opacidad para dar profundidad real.
+*/
+.process-workflow-card::before {
+    content: "";                /* crea el pseudo-elemento */
+    position: absolute;         /* se posiciona relativo al card */
+    inset: 0;                   /* ocupa exactamente el tamaño del card */
+    background: #000;           /* negro puro para sombra profunda */    
+    /* Misma forma diagonal que la tarjeta real */
+    clip-path: polygon(
+        0 0,        /* esquina superior izquierda */
+        100% 0,     /* esquina superior derecha */
+        90% 100%,   /* esquina inferior derecha con diagonal */
+        0 100%      /* esquina inferior izquierda */
+    );
+    transform: translate(22px, 22px); /* desplazamiento de la sombra (paralela) */
+    filter: blur(40px);               /* suaviza bordes para efecto flotante */
+    opacity: 0.7;                     /* intensidad de la sombra */    
+    z-index: 1;                       /* queda detrás de la tarjeta */
+    pointer-events: none;             /* no bloquea clicks ni hover */
+}
+
+/* Timeline */
+.process-workflow-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    position: relative;
+    padding-left: 80px;
+}
+
+/* Número */
+.process-workflow-index {
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--accent);
+    opacity: 0.18;
+    line-height: 1;
+    min-width: 60px;
+}
+
+.process-workflow-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.process-workflow-content p {
+    color: #9ca3af;
+    line-height: 1.65;
+}
+
+/* Hover sutil (pro) */
+.process-workflow-step:hover .process-workflow-index {
+    opacity: 0.35;
+    transition: opacity 0.4s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .process-workflow-timeline {
+        padding-left: 0;
+    }
+
+    .process-workflow-timeline::before {
+        display: none;
+    }
+
+    .process-workflow-step {
+        gap: 16px;
+    }
+
+    .process-workflow-index {
+        font-size: 40px;
+    }
+}
+
+/* ---------- RECUADROS DE METRICAS ---------- */
+
+.process-workflow-header-inner {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    align-items: center;
+    gap: 56px;
+}
+
+/* Métricas */
+.process-workflow-metrics {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.metric-card {
+    background: linear-gradient(145deg, #141824, #0e111a);
+    padding: 22px 24px;
+    border-radius: 14px;
+    text-align: center;
+    min-width: 150px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+.metric-value {
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.metric-card p {
+    font-size: 14px;
+    color: #9ca3af;
+    line-height: 1.4;
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* PAGINA CASOS DE ESTUDIO */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+/* Contenedor general */
+.site-wrapper-cases .container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+/* =========================================================
+   BLOQUE LOGOS
+========================================================= */
+
+.cases-trust {	
+    padding: 25px 0 40px;
+	 margin-top: -24px;
+}
+
+.cases-trust-title {
+    text-align: center;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 42px;
+}
+
+/* Contenedor del slider con líneas */
+.cases-logos {
+    position: relative;
+    padding: 8px 0;
+}
+
+/* Líneas superior e inferior */
+.cases-logos::before,
+.cases-logos::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+}
+
+.cases-logos::before {
+    top: 0;
+}
+
+.cases-logos::after {
+    bottom: 0;
+}
+
+/* Splide ajustes */
+.cases-logos .splide__track {
+    overflow: hidden;
+}
+
+.cases-logos .splide__slide {
+    display: flex;
+    align-items: center;
+}
+
+/* Logos */
+.cases-logos img {
+    height: 140px;
+    width: auto;
+    opacity: 0.55;
+    filter: grayscale(100%);
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.cases-logos img:hover {
+    opacity: 0.85;
+    filter: grayscale(0%);
+}
+
+/* =========================================================
+   CASOS DESTACADOS
+========================================================= */
+
+.cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+}
+
+/* Card */
+.case-card {
+    background: #0f1320;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+	border-radius: 28px; /* aplica 28px a las 4 esquinas */
+}
+
+.case-card-link {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.case-card:hover {
+    border-color: rgba(255,255,255,0.12);   
+}
+
+.case-card:hover .case-link {
+    text-decoration: underline;
+}
+
+.case-logo,
+.case-logo-axionis {
+    background: #000;
+    padding: 28px;
+    margin: -36px -36px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 220px; 
+    overflow: hidden;
+	border-radius: 28px; /* aplica 28px a las 4 esquinas */
+}
+
+.case-logo img {
+    max-width: 260px;
+    height: auto;
+    opacity: 0.9;
+}
+
+.case-logo-axionis img {
+    max-width: 260px;
+    transform: scale(1.2); /* crece sin empujar */
+    transform-origin: center;
+}
+
+.case-title {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 1.35;
+    margin-bottom: 16px;
+}
+
+.case-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    line-height: 1.4;
+}
+
+.case-problem {
+    font-size: 14.5px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.case-result {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.case-result span {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 4px;
+}
+
+.case-link {
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.case-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cases-cta {
+    padding: 40px 0 40px;
+    text-align: center;
+}
+
+.cases-cta h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 28px;
+}
+
+.cases-cta .btn {
+    padding: 14px 36px;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1100px) {
+    .cases-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cases-hero h1 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cases-hero {
+        padding: 80px 0 60px;
+    }
+
+    .cases-logos img {
+        height: 34px;
+    }
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* TEMPLATE ARTICULO */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+/* Contenedor general del case (define el ancho máximo de toda la página) */
+/* limitar ancho del artículo */
+.site-wrapper-case-single .container {
+    max-width: 1200px;   /* Limita el ancho total del layout en pantallas grandes */
+    margin: 0 auto;      /* Centra el contenedor horizontalmente */
+    padding: 0 24px;     /* Espacio lateral interno para que el contenido no toque los bordes (mobile/tablet) */
+	margin-bottom: 50px;
+}
+
+.case-content {
+	max-width: 780px;
+    margin: 28px auto 0; /* separación elegante, no exagerada */
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.case-hero-image {
+    max-width: 780px;        /* mismo ancho que el texto */
+    height: 420px;
+    margin: 40px auto 0;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+}
+
+.case-hero-image img {
+    width: auto;
+    max-width: 1280px;   /* el doble */
+    max-height: 560px;   /* el doble */
+    height: auto;
+    display: block;
+}
+
+.page-template-page-articulo .case-content p {
+    margin-bottom: 16px;
+    font-weight: 300;
+}
+
+/* Títulos */
+.case-content h1 {
+    font-size: 36px;
+    margin-bottom: 32px;
+}
+
+.case-content h2 {
+    font-size: 26px;
+    margin-top: 18px;
+	margin-bottom: 18px;
+}
+
+.case-content p {
+    max-width: 65ch; /* magia de lectura */
+}
+
+/* Listas */
+.case-content ul,
+.case-content ol {
+    margin: 0 0 16px 20px;
+}
+
+.case-content li {
+    margin-bottom: 8px;
+}
+
+/* Links */
+.case-content a {
+    color: #4ea1ff;
+    text-decoration: underline;
+}
+
+/* separador */
+.case-content hr {
+    border: none;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255,255,255,0.25),
+        transparent
+    );
+    margin: 28px; 14px 0;	
+}
+
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+/* PAGINA DE CONTACTO */
+/* xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx */
+
+.site-wrapper-contact {
+    background: radial-gradient(1200px 600px at 20% 0%, #111827 0%, #050608 60%);
+}
+
+/* HERO */
+.contact-hero {
+    padding: 120px 24px;
+}
+
+/* CONTENEDOR */
+.contact-container {
+    max-width: 1200px;                 /* Limita el ancho máximo del bloque */
+    margin: 0 auto;                    /* Lo centra horizontalmente en la página */
+    display: grid;                     /* Activa CSS Grid para el layout */
+    grid-template-columns: 1.1fr 0.9fr;/* Crea 2 columnas:
+                                          - izquierda un poco más ancha (texto)
+                                          - derecha un poco más angosta (formulario) */
+    gap: 80px;                         /* Espacio entre las dos columnas */    
+}
+
+/* TEXTO */
+.contact-copy h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+.contact-copy p {
+    max-width: 52ch;
+    font-size: 18px;
+    color: rgba(255,255,255,0.75);
+}
+
+/* FORMULARIO */
+.contact-form {
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 32px;
+    backdrop-filter: blur(8px); /* Desenfoca el contenido que está detrás del elemento, no el elemento mismo. */
+}
+
+/* FORM */
+.b2b-form {
+    display: flex;              /* Convierte el formulario en un contenedor flex */
+    flex-direction: column;     /* Apila los campos uno debajo del otro */
+    gap: 16px;                  /* Espacio vertical uniforme entre cada fila/campo */
+}
+
+/* FILAS */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.form-row:has(textarea),
+.form-row:has(input[type="email"]),
+.form-row:has(input[name="company"]) {
+    grid-template-columns: 1fr;   /* Hace que esa fila tenga UNA sola columna */
+}
+
+/* INPUTS */
+.b2b-form input,
+.b2b-form textarea {
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 14px 16px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+.b2b-form input::placeholder,
+.b2b-form textarea::placeholder {
+    color: rgba(255,255,255,0.45);
+}
+
+.b2b-form input:focus,
+.b2b-form textarea:focus {
+    border-color: #4ea1ff;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    appearance: none;
+}
+
+.btn-primary {
+    cursor: pointer;
+}
+
+/* formulario de respuesta */
+.form-success {
+    background: rgba(34,197,94,0.12);
+    border: 1px solid rgba(34,197,94,0.4);
+    color: #22c55e;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+/* formulario de error */
+.form-error {
+    background: rgba(239,68,68,0.12);
+    border: 1px solid rgba(239,68,68,0.4);
+    color: #ef4444;
+    padding: 16px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    font-size: 14px;
+}
+
+/* Boton volver al inicio */
+.contact-form .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+    padding: 14px 28px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    color: rgba(255,255,255,0.85);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.contact-form .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(255,255,255,0.03);
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05),
+        0 10px 28px rgba(0,0,0,0.45);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .contact-copy h1 {
+        font-size: 38px;
+    }
+}
